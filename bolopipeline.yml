@@ -1,0 +1,23 @@
+name: CI/CD
+on: 
+  push:
+    branches: ["main"]
+
+jobs:
+   CI:
+runs-on: ubuntu-lastet
+
+steps: 
+ -   uses: actions/checkout@v4.1.2
+ 
+-name: Construção da Imagem Docker
+uses: docker/build-push-action@v3.2.0
+with:
+
+context: ./src
+file: ./src/Dockerfile
+push: true
+tags: |
+
+manuelapereira/live-kube-news: v1
+manuelapereira/live-kube-news: lastest
